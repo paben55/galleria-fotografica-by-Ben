@@ -99,7 +99,6 @@
             font-size: 0.9em;
         }
 
-        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
@@ -174,34 +173,6 @@
             right: 20px;
         }
 
-        .instructions {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 25px;
-            background: #1e293b;
-            border-radius: 12px;
-            border-left: 4px solid #3b82f6;
-        }
-
-        .instructions h2 {
-            color: #60a5fa;
-            margin-bottom: 15px;
-        }
-
-        .instructions p {
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .instructions code {
-            background: #0f172a;
-            padding: 2px 8px;
-            border-radius: 4px;
-            color: #fbbf24;
-            font-family: 'Courier New', monospace;
-        }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8em;
@@ -222,10 +193,10 @@
 <body>
     <div class="header">
         <div class="logo-container">
-            <img src="https://i.imgur.com/xVge396.jpeg" class="logo" id="logo">
+            <img src="https://i.imgur.com/xVge396.jpg" alt="Logo" class="logo" id="logo">
         </div>
-        <h1>La Galleria di Paul Ben</h1>
-        <p class="subtitle">Collezione privata di fotografie</p>
+        <h1>Galleria del Bianconiglio</h1>
+        <p class="subtitle">Le avventure del Bianconiglio</p>
     </div>
 
     <div class="gallery" id="gallery"></div>
@@ -239,30 +210,20 @@
         </div>
     </div>
 
-    <div class="instructions">
-        <h2>📝 Istruzioni per personalizzare la galleria</h2>
-        <p><strong>Per cambiare il logo:</strong> Nella riga 158, sostituisci l'URL dell'immagine del logo con il tuo.</p>
-        <p><strong>Per cambiare il titolo:</strong> Modifica il testo "La  Galleria di Paul Ben" nella riga 159.</p>
-        <p><strong>Per aggiungere/modificare foto:</strong> Nell'array <code>photos</code> qui sotto (riga 176), aggiungi o modifica gli oggetti con i tuoi URL di immagini, titoli e descrizioni.</p>
-        <p><strong>Privacy:</strong> Questa galleria include il tag <code>noindex, nofollow</code> per non essere indicizzata dai motori di ricerca. Condividi il link solo con chi vuoi che veda le foto.</p>
-    </div>
-
     <script>
-        // MODIFICA QUESTO ARRAY CON LE TUE FOTO
         const photos = [
-            {                url:”https://i.imgur.com/9JTVdPe.jpeg“,
-               
-
- title: "Bianconiglio e l'ansia",
+            {
+                url: "https://i.imgur.com/9JTVdPe.jpeg",
+                title: "Bianconiglio e l'ansia",
                 description: "rappresenta l'ansia del tempo che scorre"
             },
             {
-                url: “https://i.imgur.com/yER6PCl.jpeg",
+                url: "https://i.imgur.com/yER6PCl.jpeg",
                 title: "Bianconiglio l'elegante",
                 description: "Simboleggia una figura borghese e rispettabile"
             },
             {
-                url: “https://i.imgur.com/DSyGdSC.jpeg",
+                url: "https://i.imgur.com/DSyGdSC.jpeg",
                 title: "Bianconiglio innesta l'avventura",
                 description: "Alice lo segue nella tana"
             },
@@ -275,7 +236,6 @@
                 url: "https://i.imgur.com/dfoDsyI.jpeg",
                 title: "Bianconiglio il fuggiasco",
                 description: "é sempre in fuga"
-       
             }
         ];
 
@@ -328,7 +288,6 @@
             document.getElementById('lightbox-img').src = photos[currentPhotoIndex].url;
         }
 
-        // Chiudi lightbox con tasto ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeLightbox();
@@ -339,14 +298,12 @@
             }
         });
 
-        // Chiudi lightbox cliccando sullo sfondo
         document.getElementById('lightbox').addEventListener('click', (e) => {
             if (e.target.id === 'lightbox') {
                 closeLightbox();
             }
         });
 
-        // Carica la galleria
         renderGallery();
     </script>
 </body>
